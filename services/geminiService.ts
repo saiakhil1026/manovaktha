@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 import { GoogleGenAI, Type, Chat } from "@google/genai";
 import { type Solution, type SolutionResponse, type Language, type ChatMessage, type JourneyPlan, type JourneyDayContent, type VideoSuggestion, type DoctorProfile } from '../types';
 
@@ -9,16 +7,6 @@ if (!process.env.API_KEY && !import.meta.env?.VITE_API_KEY) {
 
 const apiKey = process.env.API_KEY || import.meta.env?.VITE_API_KEY;
 const ai = new GoogleGenAI({ apiKey });
-=======
-import { GoogleGenAI, Type, Chat } from "@google/genai";
-import { type Solution, type SolutionResponse, type Language, type ChatMessage, type JourneyPlan, type JourneyDayContent } from '../types';
-
-if (!process.env.API_KEY) {
-    throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
 const solutionSchema = {
     type: Type.OBJECT,
@@ -100,10 +88,7 @@ export async function getSolutionsFromPuranas(userProblem: string, language: Lan
 }
 
 // --- New Chat Functionality ---
-<<<<<<< HEAD
-=======
 let chat: Chat | null = null;
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
 const journeyPlanSchema = {
     type: Type.OBJECT,
@@ -140,10 +125,7 @@ export const getChatSystemInstruction = (language: Language) => `You are 'Mano V
 
 export async function* streamMessageToExpert(
     history: ChatMessage[],
-<<<<<<< HEAD
-=======
     newMessage: string,
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     language: Language,
     journeyState: 'INITIAL' | 'AWAITING_DURATION' | 'AWAITING_CONFIRMATION'
 ): AsyncGenerator<string | { journeyPlan: Omit<JourneyPlan, 'originalProblem'> }> {
@@ -151,12 +133,6 @@ export async function* streamMessageToExpert(
     const systemInstruction = getChatSystemInstruction(language);
     
     // Convert our app's message format to the Gemini API's format
-<<<<<<< HEAD
-    const modelContents = history.map(msg => ({
-        role: msg.role,
-        parts: [{ text: msg.content }]
-    }));
-=======
     const contents = history.map(msg => ({
         role: msg.role,
         parts: [{ text: msg.content }]
@@ -165,7 +141,6 @@ export async function* streamMessageToExpert(
 
     // Remove the initial system message from the history sent to the model
     const modelContents = contents.slice(1);
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     
     try {
         if (journeyState === 'AWAITING_DURATION') {
@@ -323,25 +298,6 @@ export async function* streamSessionChat(
     }
 }
 
-<<<<<<< HEAD
-export async function* streamVedicAnalysis(
-    history: ChatMessage[],
-    newMessage: string,
-    language: Language,
-): AsyncGenerator<string> {
-    const systemInstruction = `You are 'Mano Vaktha', a personal wellness companion. Your wisdom is rooted in the timeless teachings of the Vedas and Sanatana Dharma. You engage in a supportive, empathetic, and calming conversation.
-    - Your primary goal is to help the user understand their feelings and provide gentle, actionable guidance.
-    - Analyze the user's input, which may include a topic (like Stress, Anxiety), selected symptoms, and their daily routine.
-    - Based on this analysis, provide a thoughtful response that includes:
-        1. Empathy and validation of their feelings.
-        2. Simple, practical advice based on Vedic principles (e.g., mindfulness, simple yoga poses, breathing exercises, dietary suggestions based on Ayurvedic concepts, connecting with nature).
-        3. A short, relevant story or teaching from the scriptures to provide perspective and hope.
-    - Your tone should be encouraging and non-clinical. You are a wise friend, not a doctor.
-    - Always conclude with a disclaimer: "Mano Vaktha is an AI assistant and not a medical professional. For crises, please contact a healthcare provider."
-    - IMPORTANT: Your entire response MUST be in ${language}.`;
-
-    const contents = history.map(msg => ({
-=======
 export async function* streamTempChat(
     sessionHistory: ChatMessage[],
     newMessage: string,
@@ -356,7 +312,6 @@ export async function* streamTempChat(
     - IMPORTANT: Your entire response MUST be in ${language}.`;
 
     const contents = sessionHistory.map(msg => ({
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         role: msg.role,
         parts: [{ text: msg.content }]
     }));
@@ -375,17 +330,12 @@ export async function* streamTempChat(
             yield chunk.text;
         }
     } catch(error) {
-<<<<<<< HEAD
-        console.error("Vedic analysis stream error:", error);
-=======
         console.error("Temp chat stream error:", error);
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         if (isRateLimitError(error)) {
             throw new Error("RATE_LIMIT_EXCEEDED");
         }
         throw error;
     }
-<<<<<<< HEAD
 }
 
 export async function* streamChat(
@@ -538,6 +488,3 @@ export async function getDoctorList(language: Language): Promise<DoctorProfile[]
         throw new Error("Failed to fetch doctor list.");
     }
 }
-=======
-}
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605

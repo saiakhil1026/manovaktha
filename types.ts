@@ -31,11 +31,7 @@ export interface JourneyPlan {
 }
 
 export interface DailyStory {
-<<<<<<< HEAD
-  title:string;
-=======
   title: string;
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
   content: string;
   reference: string;
 }
@@ -44,7 +40,6 @@ export interface JourneyDayContent {
   introduction: string;
   stories: DailyStory[];
 }
-<<<<<<< HEAD
 
 // --- New Types for Media and Doctors ---
 
@@ -73,5 +68,3 @@ export interface ManuscriptHistoryItem {
   solutions: Solution[];
   timestamp: number;
 }
-=======
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
