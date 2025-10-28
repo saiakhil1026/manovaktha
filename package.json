@@ -1,16 +1,11 @@
 {
-<<<<<<< HEAD
   "name": "base_manovaktha3.09_withall-integrations",
-=======
-  "name": "copy-of-copy-of-copy-of-copy-of-copy-of-copy-of-copy-of-mano-vaktha:-the-sacred-manuscript(english-ai-with-back-option)-final-with-dashboard-all-laguages-in-one-with-good-integration--but-some-error-with-limit",
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-<<<<<<< HEAD
     "preview": "vite preview",
     "server": "node server/server.js",
     "server:dev": "nodemon server/server.js",
@@ -26,24 +21,15 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.0",
-=======
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@google/genai": "^1.15.0",
     "orbit-controls": "^1.2.4",
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "three": "^0.132.2"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-<<<<<<< HEAD
     "@vitejs/plugin-react": "^5.0.0",
     "nodemon": "^3.0.1",
-=======
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }
