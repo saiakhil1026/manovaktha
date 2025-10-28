@@ -6,7 +6,6 @@ import Loader from './components/Loader';
 import Welcome from './components/Welcome';
 import IntroAnimation from './components/IntroAnimation';
 import JourneyView from './components/JourneyView';
-<<<<<<< HEAD
 import AnalysisView from './components/AnalysisView';
 import QuickChatView from './components/QuickChatView';
 import AuthView from './components/AuthView';
@@ -23,16 +22,6 @@ import { useAuth } from './contexts/AuthContext';
 
 type AppState = 'idle' | 'loading' | 'success' | 'error';
 type AppView = 'intro' | 'auth' | 'manuscript' | 'journey' | 'analysis' | 'quickChat' | 'media' | 'doctors' | 'history' | 'saved';
-=======
-import TempChatView from './components/TempChatView'; // Import the new component
-import ManoVakthaIcon from './components/icons/ManoVakthaIcon';
-import { type Solution } from './types';
-import { getSolutionsFromPuranas } from './services/geminiService';
-import { useLanguage } from './contexts/LanguageContext';
-
-type AppState = 'idle' | 'loading' | 'success' | 'error';
-type AppView = 'intro' | 'manuscript' | 'journey' | 'tempChat'; // Add new view type
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
 const App: React.FC = () => {
   const [problem, setProblem] = useState<string>('');
@@ -40,19 +29,12 @@ const App: React.FC = () => {
   const [appState, setAppState] = useState<AppState>('idle');
   const [error, setError] = useState<string | null>(null);
   
-<<<<<<< HEAD
   const [view, setView] = useState<AppView>('intro'); // Start with intro animation
   const [introExiting, setIntroExiting] = useState(false);
   const [isProfileSettingsOpen, setIsProfileSettingsOpen] = useState(false);
   
   const { language, t, isLoaded } = useLanguage();
   const { user, isAuthenticated } = useAuth();
-=======
-  const [view, setView] = useState<AppView>('intro');
-  const [introExiting, setIntroExiting] = useState(false);
-  
-  const { language, t, isLoaded } = useLanguage();
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
   useEffect(() => {
     const languageFontMap: Record<string, string> = {
@@ -67,7 +49,6 @@ const App: React.FC = () => {
   const handleEnter = () => {
     setIntroExiting(true);
     setTimeout(() => {
-<<<<<<< HEAD
         setView('auth');
     }, 1000); // Duration of the fade-out animation
   };
@@ -81,11 +62,6 @@ const App: React.FC = () => {
     setView('auth');
     setIsProfileSettingsOpen(false); // Close modal on logout
   };
-=======
-        setView('manuscript');
-    }, 1000); // Duration of the fade-out animation
-  };
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
   const handleReset = useCallback(() => {
     setAppState('idle');
@@ -94,11 +70,7 @@ const App: React.FC = () => {
     setError(null);
   }, []);
 
-<<<<<<< HEAD
   const navigateTo = (targetView: AppView, shouldReset?: boolean) => {
-=======
-  const navigateTo = (targetView: 'manuscript' | 'journey' | 'tempChat', shouldReset?: boolean) => {
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     setView(targetView);
     if (targetView === 'manuscript' && shouldReset) {
       handleReset();
@@ -120,7 +92,6 @@ const App: React.FC = () => {
       const fetchedSolutions = await getSolutionsFromPuranas(userProblem, language);
       setSolutions(fetchedSolutions);
       setAppState('success');
-<<<<<<< HEAD
 
       if (fetchedSolutions.length > 0) {
         // Save to MongoDB instead of localStorage
@@ -144,8 +115,6 @@ const App: React.FC = () => {
           localStorage.setItem('manuscriptHistory', JSON.stringify(updatedHistory));
         }
       }
-=======
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     } catch (err) {
       console.error(err);
       if (err instanceof Error && err.message === 'RATE_LIMIT_EXCEEDED') {
@@ -209,7 +178,6 @@ const App: React.FC = () => {
     return <IntroAnimation onEnter={handleEnter} isExiting={introExiting} />;
   }
 
-<<<<<<< HEAD
   if (view === 'auth') {
     return <AuthView onAuthSuccess={handleAuthSuccess} />;
   }
@@ -258,29 +226,6 @@ const App: React.FC = () => {
         onLogout={handleLogout}
       />
     </>
-=======
-  return (
-    <div className="min-h-screen flex flex-col animate-fade-in">
-      <Header onNavigate={navigateTo} currentView={view} />
-      <main className="container mx-auto px-4 py-8 sm:py-12 max-w-4xl flex-grow">
-        <div className="bg-[#FBF5E9]/80 backdrop-blur-sm border-2 border-[#D4AF37]/50 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
-          {view === 'manuscript' && (
-             <div className="p-4 sm:p-8">
-                <section id="problem-input" className="mb-12">
-                  <ProblemInput onSubmit={handleProblemSubmit} isLoading={appState === 'loading'} />
-                </section>
-                {renderManuscriptContent()}
-             </div>
-          )}
-          {view === 'journey' && <JourneyView initialProblem={problem} />}
-          {view === 'tempChat' && <TempChatView />}
-        </div>
-      </main>
-      <footer className="text-center py-6 text-sm text-[#8C5A2A]/80">
-        <p>{t('footerText', new Date().getFullYear())}</p>
-      </footer>
-    </div>
->>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
   );
 };
 
