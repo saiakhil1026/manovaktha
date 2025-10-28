@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "base_manovaktha3.09_withall integrations",
+=======
+  "name": "Copy of Copy of Copy of Copy of Copy of Copy of Copy of Mano Vaktha: The Sacred Manuscript(English ai with back option) final with dashboard all laguages in one with good integration  but some error with limit",
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
   "description": "An interactive web application that takes a user's life problem, analyzes it using AI, and provides 10 unique solutions drawn from the wisdom of the Bhagavad Gita and Hindu Puranas, presented as engaging stories within a sacred manuscript interface.",
   "requestFramePermissions": []
 }

@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import React, { useRef, useState, useEffect } from 'react';
 import * as THREE from 'three';
 import ManoVakthaIcon from './icons/ManoVakthaIcon';
 import { useLanguage } from '../contexts/LanguageContext';
+=======
+import React, { useRef, useEffect, useState } from 'react';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import ManoVakthaIcon from './icons/ManoVakthaIcon';
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
 interface IntroAnimationProps {
   onEnter: () => void;
@@ -11,7 +18,10 @@ interface IntroAnimationProps {
 const IntroAnimation: React.FC<IntroAnimationProps> = ({ onEnter, isExiting }) => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [uiVisible, setUiVisible] = useState(false);
+<<<<<<< HEAD
   const { t } = useLanguage();
+=======
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -31,6 +41,16 @@ const IntroAnimation: React.FC<IntroAnimationProps> = ({ onEnter, isExiting }) =
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     currentMount.appendChild(renderer.domElement);
 
+<<<<<<< HEAD
+=======
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.enableZoom = false;
+    controls.enablePan = false;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.4;
+
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     const parameters = {
       count: 250000,
       size: 0.015,
@@ -56,11 +76,15 @@ const IntroAnimation: React.FC<IntroAnimationProps> = ({ onEnter, isExiting }) =
       for (let i = 0; i < parameters.count; i++) {
         const i3 = i * 3;
         const randomVertexIndex = Math.floor(Math.random() * coreVertexCount);
+<<<<<<< HEAD
         const startVec = new THREE.Vector3(
           coreVertices[randomVertexIndex * 3], 
           coreVertices[randomVertexIndex * 3 + 1], 
           coreVertices[randomVertexIndex * 3 + 2]
         );
+=======
+        const startVec = new THREE.Vector3(coreVertices[randomVertexIndex * 3], coreVertices[randomVertexIndex * 3 + 1], coreVertices[randomVertexIndex * 3 + 2]);
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         const direction = startVec.clone().normalize();
         const distance = parameters.coreRadius + Math.random() * parameters.jetLength;
         const finalVec = direction.clone().multiplyScalar(distance);
@@ -116,6 +140,10 @@ const IntroAnimation: React.FC<IntroAnimationProps> = ({ onEnter, isExiting }) =
         points.rotation.y = elapsedTime * 0.04;
         points.rotation.x = elapsedTime * 0.01;
       }
+<<<<<<< HEAD
+=======
+      controls.update();
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
       renderer.render(scene, camera);
       animationFrameId = window.requestAnimationFrame(tick);
     };
@@ -124,7 +152,11 @@ const IntroAnimation: React.FC<IntroAnimationProps> = ({ onEnter, isExiting }) =
     return () => {
       window.cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
+<<<<<<< HEAD
       if (currentMount && renderer.domElement.parentNode) {
+=======
+      if (currentMount) {
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         currentMount.removeChild(renderer.domElement);
       }
       points?.geometry.dispose();
@@ -142,8 +174,13 @@ const IntroAnimation: React.FC<IntroAnimationProps> = ({ onEnter, isExiting }) =
         style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}
       >
         <ManoVakthaIcon className="w-24 h-24 text-[#D4AF37]" />
+<<<<<<< HEAD
         <h1 className="text-5xl sm:text-6xl font-sanskrit tracking-wider text-white mt-4">Mano Vaktha</h1>
         <p className="text-xl text-amber-200 mt-2">{t('yourWellnessCompanion')}</p>
+=======
+        <h1 className="text-6xl font-sanskrit tracking-wider text-white mt-4">Mano Vaktha</h1>
+        <p className="text-xl text-amber-200 mt-2">Your Spiritual Guide</p>
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         
         <div className={`transition-opacity duration-1000 delay-1000 ${uiVisible ? 'opacity-100' : 'opacity-0'}`}>
            <button 
@@ -151,7 +188,11 @@ const IntroAnimation: React.FC<IntroAnimationProps> = ({ onEnter, isExiting }) =
              className="mt-12 bg-[#8C5A2A] text-[#FBF5E9] font-bold py-3 px-8 rounded-lg text-xl hover:bg-[#4A2C2A] border border-[#D4AF37] shadow-lg shadow-amber-500/20 transform hover:scale-105 transition-all duration-300"
              aria-label="Enter the application"
            >
+<<<<<<< HEAD
              {t('enter')}
+=======
+             Enter
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
            </button>
         </div>
       </div>

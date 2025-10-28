@@ -13,7 +13,10 @@ const LanguageSwitcher: React.FC = () => {
   const { language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+<<<<<<< HEAD
   const buttonRef = useRef<HTMLButtonElement>(null);
+=======
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
   const handleLanguageChange = (langCode: Language) => {
     setLanguage(langCode);
@@ -21,6 +24,7 @@ const LanguageSwitcher: React.FC = () => {
   };
 
   useEffect(() => {
+<<<<<<< HEAD
     if (!isOpen) return;
 
     const handleInteraction = (event: MouseEvent | KeyboardEvent) => {
@@ -51,11 +55,24 @@ const LanguageSwitcher: React.FC = () => {
       document.removeEventListener('keydown', handleInteraction);
     };
   }, [isOpen]);
+=======
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
   return (
     <div className="relative" ref={dropdownRef}>
       <button
+<<<<<<< HEAD
         ref={buttonRef}
+=======
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-center w-10 h-10 rounded-full text-[#4A2C2A] hover:bg-[#8C5A2A]/10 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#FBF5E9] focus:ring-[#4A2C2A]"
         aria-label="Change language"
@@ -101,4 +118,8 @@ const LanguageSwitcher: React.FC = () => {
   );
 };
 
+<<<<<<< HEAD
 export default LanguageSwitcher;
+=======
+export default LanguageSwitcher;
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605

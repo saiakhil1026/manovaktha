@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 {
   "manuscript": "Manuscript",
@@ -8,21 +9,39 @@
   "doctors": "Doctors",
   "history": "History",
   "saved": "Saved",
+=======
+{
+  "manuscript": "Manuscript",
+  "wellnessJourney": "Wellness Journey",
+  "tempChart": "Temp Chart",
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
   "returnToHomepage": "Return to homepage",
   "describeYourProblem": "Describe Your Problem",
   "explainChallenge": "Explain the challenge you are facing, and we will provide guidance from the scriptures.",
   "problemPlaceholder": "For example: I'm feeling stressed in my career and don't know what to do...",
+<<<<<<< HEAD
   "problemInputLabel": "Share your problem here. Explain the challenge you are facing.",
   "seekGuidance": "Seek Guidance",
   "searching": "Searching...",
   "guidanceFromScriptures": "Guidance from the Scriptures",
   "errorOccurred": "Sorry, an error occurred. Please try again.",
+=======
+  "seekGuidance": "Seek Guidance",
+  "searching": "Searching...",
+  "guidanceFromScriptures": "Guidance from the Scriptures",
+  "errorOccurred": "Sorry, an error occurred while fetching solutions. Please try again.",
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
   "noSolutionsFound": "Sorry, no specific solutions were found for this problem. Please try rephrasing your question.",
   "welcomeSeeker": "Welcome, Seeker",
   "welcomeMessage": "The challenges that arise in the journey of life come only to strengthen us. Share the burden on your mind with us. Drawing inspiration from the Puranas, epics, and the Bhagavad Gita of our Sanatana Dharma, we will help you find the right path for your problem.",
   "enter": "Enter",
+<<<<<<< HEAD
   "yourWellnessCompanion": "Your Personal Wellness Companion",
   "footerText": "© {0} Mano Vaktha. Your Personal Wellness Companion.",
+=======
+  "yourSpiritualGuide": "Your Spiritual Guide",
+  "footerText": "© {0} Mano Vaktha. Your Spiritual Guide.",
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
   "turningPages": "Turning the pages of the Puranas...",
   "searchingGita": "Searching the essence of the Bhagavad Gita...",
   "consultingSages": "Consulting the wisdom of ancient sages...",
@@ -30,9 +49,12 @@
   "loading": "Loading...",
   "stopReadingAloud": "Stop reading aloud",
   "readSolutionAloud": "Read solution aloud",
+<<<<<<< HEAD
   "saveSolution": "Save this solution",
   "removeSavedSolution": "Remove saved solution",
   "solutionSaved": "Saved!",
+=======
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
   "yourWellnessJourney": "Your Wellness Journey",
   "journeyProgress": "Journey Progress",
   "days": "Days",
@@ -55,6 +77,7 @@
   "readStoryAloud": "Read story aloud",
   "friendlyChatForGuidance": "A friendly chat for quick guidance.",
   "shareYourThoughts": "Share your thoughts with Chintan...",
+<<<<<<< HEAD
   "apiRateLimitError": "We are experiencing high demand right now. Please wait a moment and try again.",
   "readChatAloud": "Read Chat Aloud",
   "stopReadingChatAloud": "Stop Reading",
@@ -191,4 +214,7 @@
   "cancel": "Cancel",
   "profileUpdatedSuccessfully": "Profile updated successfully!",
   "profileUpdateFailed": "Failed to update profile. Please try again."
+=======
+  "apiRateLimitError": "We are experiencing high demand right now. Please wait a moment and try again."
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 }

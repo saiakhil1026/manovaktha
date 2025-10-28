@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import React, { useState, useEffect, useRef } from 'react';
 import { type Solution } from '../types';
@@ -7,10 +8,18 @@ import BookmarkIcon from './icons/BookmarkIcon';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
 import { savedSolutionsService } from '../services';
+=======
+import React, { useState, useEffect } from 'react';
+import { type Solution } from '../types';
+import SpeakerOnIcon from './icons/SpeakerOnIcon';
+import SpeakerOffIcon from './icons/SpeakerOffIcon';
+import { useLanguage } from '../contexts/LanguageContext';
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
 interface SolutionCardProps {
   solution: Solution;
   index: number;
+<<<<<<< HEAD
   onUnsave?: (solution: Solution) => void;
 }
 
@@ -58,6 +67,20 @@ const SolutionCard: React.FC<SolutionCardProps> = ({ solution, index, onUnsave }
   // Cleanup speech synthesis on component unmount
   useEffect(() => {
     return () => {
+=======
+}
+
+const SolutionCard: React.FC<SolutionCardProps> = ({ solution, index }) => {
+  const [isOpen, setIsOpen] = useState(index === 0); // Open the first card by default
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const { t } = useLanguage();
+  const contentId = `solution-content-${index}`;
+
+  // Cleanup speech synthesis on component unmount or when the card is closed
+  useEffect(() => {
+    return () => {
+      // This is a global cancel, which is fine as only one card should speak at a time.
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
       speechSynthesis.cancel();
     };
   }, []);
@@ -70,6 +93,7 @@ const SolutionCard: React.FC<SolutionCardProps> = ({ solution, index, onUnsave }
     }
   }, [isOpen, isSpeaking]);
 
+<<<<<<< HEAD
   const handleToggleSave = async (e: React.MouseEvent) => {
     e.stopPropagation();
     
@@ -133,11 +157,17 @@ const SolutionCard: React.FC<SolutionCardProps> = ({ solution, index, onUnsave }
       return;
     }
 
+=======
+  const handleToggleSpeech = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent the card from collapsing when clicking the button
+
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     if (!('speechSynthesis' in window)) {
       alert("Sorry, your browser doesn't support text-to-speech.");
       return;
     }
 
+<<<<<<< HEAD
     speechSynthesis.cancel(); // Clear any previous speech
 
     const langCodeMap: Record<string, string> = {
@@ -199,6 +229,30 @@ const SolutionCard: React.FC<SolutionCardProps> = ({ solution, index, onUnsave }
 
     setIsSpeaking(true);
     playNext();
+=======
+    if (isSpeaking) {
+      speechSynthesis.cancel();
+      setIsSpeaking(false);
+    } else {
+      // Stop any other speech that might be active
+      speechSynthesis.cancel();
+
+      const textToSpeak = `${solution.title}. ${solution.story}. Reference: ${solution.reference}`;
+      const utterance = new SpeechSynthesisUtterance(textToSpeak);
+      utterance.lang = 'en-US';
+
+      utterance.onend = () => {
+        setIsSpeaking(false);
+      };
+      utterance.onerror = (event) => {
+        console.error("Speech synthesis error:", event.error);
+        setIsSpeaking(false);
+      };
+
+      speechSynthesis.speak(utterance);
+      setIsSpeaking(true);
+    }
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
   };
 
   return (
@@ -210,9 +264,13 @@ const SolutionCard: React.FC<SolutionCardProps> = ({ solution, index, onUnsave }
         aria-controls={contentId}
       >
         <h3 className="text-xl font-bold text-[#4A2C2A]">{solution.title}</h3>
+<<<<<<< HEAD
         <div 
              aria-hidden="true"
              className="w-6 h-6 flex items-center justify-center text-[#8C5A2A] border-2 border-[#8C5A2A] rounded-full transition-transform duration-300 transform"
+=======
+        <div className="w-6 h-6 flex items-center justify-center text-[#8C5A2A] border-2 border-[#8C5A2A] rounded-full transition-transform duration-300 transform"
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
              style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
           <svg
             className="w-4 h-4"
@@ -238,6 +296,7 @@ const SolutionCard: React.FC<SolutionCardProps> = ({ solution, index, onUnsave }
         aria-hidden={!isOpen}
       >
         <div className="p-5 pt-3 border-t-2 border-dashed border-[#D4AF37]/50">
+<<<<<<< HEAD
           <p className="text-[#4A2C2A]/90 text-lg leading-loose whitespace-pre-wrap mb-4">
             {solution.story}
           </p>
@@ -263,6 +322,20 @@ const SolutionCard: React.FC<SolutionCardProps> = ({ solution, index, onUnsave }
                     <span className="text-sm font-semibold text-green-700">{t('solutionSaved')}</span>
                 </div>
             </div>
+=======
+          <p className="text-[#4A2C2A]/90 text-lg leading-relaxed whitespace-pre-wrap mb-4" style={{lineHeight: '2.2rem'}}>
+            {solution.story}
+          </p>
+          <div className="flex justify-between items-center mt-4">
+             <button
+                onClick={handleToggleSpeech}
+                className={`p-2 rounded-full text-[#8C5A2A] hover:bg-[#8C5A2A]/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#FBF5E9] focus:ring-[#4A2C2A] transition-colors ${isSpeaking ? 'bg-[#8C5A2A]/20' : ''}`}
+                aria-label={isSpeaking ? t('stopReadingAloud') : t('readSolutionAloud')}
+                aria-pressed={isSpeaking}
+             >
+                {isSpeaking ? <SpeakerOnIcon className="w-6 h-6" /> : <SpeakerOffIcon className="w-6 h-6" />}
+             </button>
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
             <p className="text-right text-base font-semibold text-[#8C5A2A] italic font-sanskrit">
               ~ {solution.reference}
             </p>

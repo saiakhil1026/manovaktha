@@ -19,7 +19,11 @@ const ProblemInput: React.FC<ProblemInputProps> = ({ onSubmit, isLoading }) => {
   return (
     <div className="p-6 rounded-lg border-2 border-dashed border-[#D4AF37]/60 bg-[#FBF5E9]">
       <div className="text-center mb-6">
+<<<<<<< HEAD
         <h2 className="text-2xl sm:text-3xl font-bold text-[#8C5A2A] mb-2 font-sanskrit">
+=======
+        <h2 className="text-3xl font-bold text-[#8C5A2A] mb-2 font-sanskrit">
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
           {t('describeYourProblem')}
         </h2>
         <p className="text-[#4A2C2A]/80">
@@ -33,7 +37,11 @@ const ProblemInput: React.FC<ProblemInputProps> = ({ onSubmit, isLoading }) => {
           placeholder={t('problemPlaceholder')}
           className="w-full h-36 p-4 border-2 border-[#D4AF37]/50 rounded-lg focus:ring-2 focus:ring-[#8C5A2A] focus:outline-none transition-all duration-300 resize-none text-lg bg-[#FBF5E9] text-[#4A2C2A] placeholder-[#8C5A2A]/70"
           disabled={isLoading}
+<<<<<<< HEAD
           aria-label={t('problemInputLabel')}
+=======
+          aria-label="Share your problem here"
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         />
         <button
           type="submit"
@@ -60,4 +68,8 @@ const ProblemInput: React.FC<ProblemInputProps> = ({ onSubmit, isLoading }) => {
   );
 };
 
+<<<<<<< HEAD
 export default ProblemInput;
+=======
+export default ProblemInput;
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605

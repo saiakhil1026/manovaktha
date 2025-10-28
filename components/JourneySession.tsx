@@ -134,7 +134,11 @@ const JourneySession: React.FC<JourneySessionProps> = ({ day, plan, onComplete }
         return (
             <div className="mt-6">
                 <div className="mb-8 p-6 rounded-lg border-2 border-dashed border-[#D4AF37]/60 bg-[#FBF5E9]">
+<<<<<<< HEAD
                     <p className="text-[#4A2C2A]/90 text-xl leading-loose">
+=======
+                    <p className="text-[#4A2C2A]/90 text-xl leading-relaxed" style={{lineHeight: '2.2rem'}}>
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
                         {sessionContent.introduction}
                     </p>
                 </div>

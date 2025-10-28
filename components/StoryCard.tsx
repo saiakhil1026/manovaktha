@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from 'react';
+=======
+import React, { useState, useEffect } from 'react';
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 import { type DailyStory } from '../types';
 import SpeakerOnIcon from './icons/SpeakerOnIcon';
 import SpeakerOffIcon from './icons/SpeakerOffIcon';
@@ -11,6 +15,7 @@ interface StoryCardProps {
 
 const StoryCard: React.FC<StoryCardProps> = ({ story, index }) => {
   const [isOpen, setIsOpen] = useState(false);
+<<<<<<< HEAD
   const [isSpeaking, setIsSpeakingState] = useState(false);
   const { t, language } = useLanguage();
   const contentId = `story-content-${index}`;
@@ -20,6 +25,11 @@ const StoryCard: React.FC<StoryCardProps> = ({ story, index }) => {
     isSpeakingRef.current = value;
     setIsSpeakingState(value);
   };
+=======
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const { t } = useLanguage();
+  const contentId = `story-content-${index}`;
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
   // Cleanup speech synthesis on component unmount
   useEffect(() => {
@@ -39,17 +49,21 @@ const StoryCard: React.FC<StoryCardProps> = ({ story, index }) => {
   const handleToggleSpeech = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent the card from toggling when clicking the button
 
+<<<<<<< HEAD
     if (isSpeakingRef.current) {
         speechSynthesis.cancel();
         setIsSpeaking(false);
         return;
     }
 
+=======
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     if (!('speechSynthesis' in window)) {
       alert("Sorry, your browser doesn't support text-to-speech.");
       return;
     }
 
+<<<<<<< HEAD
     speechSynthesis.cancel(); // Clear any previous speech
 
     const langCodeMap: Record<string, string> = {
@@ -110,6 +124,29 @@ const StoryCard: React.FC<StoryCardProps> = ({ story, index }) => {
 
     setIsSpeaking(true);
     playNext();
+=======
+    if (isSpeaking) {
+      speechSynthesis.cancel();
+      setIsSpeaking(false);
+    } else {
+      // Stop any other speech that might be active
+      speechSynthesis.cancel();
+
+      const textToSpeak = `${story.title}. ${story.content}. Reference: ${story.reference}`;
+      const utterance = new SpeechSynthesisUtterance(textToSpeak);
+      // This could be made dynamic with the language context in a future update
+      utterance.lang = 'en-US'; 
+
+      utterance.onend = () => setIsSpeaking(false);
+      utterance.onerror = (event) => {
+        console.error("Speech synthesis error:", event.error);
+        setIsSpeaking(false);
+      };
+
+      speechSynthesis.speak(utterance);
+      setIsSpeaking(true);
+    }
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
   };
 
   return (
@@ -121,9 +158,13 @@ const StoryCard: React.FC<StoryCardProps> = ({ story, index }) => {
         aria-controls={contentId}
       >
         <h3 className="text-lg font-bold text-[#4A2C2A]">{index + 1}. {story.title}</h3>
+<<<<<<< HEAD
         <div 
             aria-hidden="true"
             className="w-5 h-5 flex items-center justify-center text-[#8C5A2A] transition-transform duration-300 transform"
+=======
+        <div className="w-5 h-5 flex items-center justify-center text-[#8C5A2A] transition-transform duration-300 transform"
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
              style={{ transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)' }}>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
@@ -138,7 +179,11 @@ const StoryCard: React.FC<StoryCardProps> = ({ story, index }) => {
         aria-hidden={!isOpen}
       >
         <div className="p-4 pt-2 border-t border-dashed border-[#D4AF37]/50">
+<<<<<<< HEAD
           <p className="text-[#4A2C2A]/90 text-lg leading-loose whitespace-pre-wrap mb-4">
+=======
+          <p className="text-[#4A2C2A]/90 text-lg leading-relaxed whitespace-pre-wrap mb-4" style={{lineHeight: '2.1rem'}}>
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
             {story.content}
           </p>
           <div className="flex justify-between items-center mt-3">
@@ -160,4 +205,8 @@ const StoryCard: React.FC<StoryCardProps> = ({ story, index }) => {
   );
 };
 
+<<<<<<< HEAD
 export default StoryCard;
+=======
+export default StoryCard;
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605

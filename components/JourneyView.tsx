@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 import React, { useState, useEffect, useRef, FormEvent } from 'react';
@@ -5,10 +6,16 @@ import { type ChatMessage, type JourneyPlan, type JourneyDay } from '../types';
 import { streamMessageToExpert } from '../services/geminiService';
 import { journeyService } from '../services';
 import { useAuth } from '../contexts/AuthContext';
+=======
+import React, { useState, useEffect, useRef, FormEvent } from 'react';
+import { type ChatMessage, type JourneyPlan, type JourneyDay } from '../types';
+import { streamMessageToExpert } from '../services/geminiService';
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 import SendIcon from './icons/SendIcon';
 import { useLanguage } from '../contexts/LanguageContext';
 import JourneyDashboard from './JourneyDashboard';
 import JourneySession from './JourneySession';
+<<<<<<< HEAD
 import SpeakerOnIcon from './icons/SpeakerOnIcon';
 import SpeakerOffIcon from './icons/SpeakerOffIcon';
 
@@ -17,6 +24,18 @@ const sendSound = 'data:audio/mpeg;base64,SUQzBAAAAAAAIptEAAAAANDUHJAEBTGl2ZTMuN
 const receiveSound = 'data:audio/mpeg;base64,SUQzBAAAAAAAIptEAAAAANDUHJAEBTEFNRTMuOTkuNVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-,';
 type JourneyState = 'INITIAL' | 'AWAITING_DURATION' | 'AWAITING_CONFIRMATION' | 'JOURNEY_ACTIVE';
 
+=======
+
+// --- Sound Effects ---
+const sendSound = 'data:audio/mpeg;base64,SUQzBAAAAAAAIptEAAAAANDUHJAEBTGl2ZTMuNi45qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq//LAME3.98.4UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU...';
+const receiveSound = 'data:audio/mpeg;base64,SUQzBAAAAAAAIptEAAAAANDUHJAEBTEFNRTMuOTkuNVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-V-,';
+type JourneyState = 'INITIAL' | 'AWAITING_DURATION' | 'AWAITING_CONFIRMATION' | 'JOURNEY_ACTIVE';
+
+interface JourneyViewProps {
+    initialProblem?: string;
+}
+
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 const playAudio = (audioDataUrl: string) => {
   try {
     const audio = new Audio(audioDataUrl);
@@ -29,12 +48,17 @@ const playAudio = (audioDataUrl: string) => {
   }
 };
 
+<<<<<<< HEAD
 const JourneyView: React.FC = () => {
+=======
+const JourneyView: React.FC<JourneyViewProps> = ({ initialProblem: initialProblemFromProps = '' }) => {
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [userInput, setUserInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [journeyState, setJourneyState] = useState<JourneyState>('INITIAL');
     const [journeyPlan, setJourneyPlan] = useState<JourneyPlan | null>(null);
+<<<<<<< HEAD
     const [pendingPlan, setPendingPlan] = useState<JourneyPlan | null>(null);
     const [activeDay, setActiveDay] = useState<JourneyDay | null>(null);
     const [initialProblem, setInitialProblem] = useState<string>('');
@@ -50,11 +74,20 @@ const JourneyView: React.FC = () => {
         isReadingChatRef.current = value;
         setIsReadingChatState(value);
     };
+=======
+    const [activeDay, setActiveDay] = useState<JourneyDay | null>(null);
+    const [initialProblem, setInitialProblem] = useState<string>(initialProblemFromProps);
+
+    const { language, t } = useLanguage();
+    const messagesEndRef = useRef<HTMLDivElement>(null);
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
+<<<<<<< HEAD
     // Load journey plan from database or localStorage on initial render
     useEffect(() => {
         const loadJourneyPlan = async () => {
@@ -150,6 +183,8 @@ const JourneyView: React.FC = () => {
         }
     }, [journeyPlan, isAuthenticated, language]);
 
+=======
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     useEffect(scrollToBottom, [messages]);
     
     useEffect(() => {
@@ -161,6 +196,7 @@ const JourneyView: React.FC = () => {
     }, [userInput]);
 
     useEffect(() => {
+<<<<<<< HEAD
         return () => {
             speechSynthesis.cancel();
         };
@@ -250,11 +286,25 @@ const JourneyView: React.FC = () => {
         setIsReadingChat(true);
         playNext();
     };
+=======
+        if (initialProblemFromProps && journeyState === 'INITIAL') {
+            // Fix: Explicitly type the initial message to match ChatMessage['role']
+            const initialModelMessage: ChatMessage = { role: 'model', content: `I understand you are facing challenges with: "${initialProblemFromProps}".\n\nTo begin your healing journey, how many days can you dedicate to this path?` };
+            setMessages([initialModelMessage]);
+            setJourneyState('AWAITING_DURATION');
+        } else if (!initialProblemFromProps && journeyState === 'INITIAL' && messages.length === 0) {
+            setMessages([
+                { role: 'model', content: "Greetings. I am Mano Vaktha. Describe the problem you are facing, and we will create a personalized wellness journey for you." }
+            ]);
+        }
+    }, [initialProblemFromProps, journeyState, messages.length]);
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
     const handleSendMessage = async (e: FormEvent) => {
         e.preventDefault();
         const trimmedInput = userInput.trim();
         if (!trimmedInput || isLoading || journeyState === 'JOURNEY_ACTIVE') return;
+<<<<<<< HEAD
     
         if (isReadingChat) {
             speechSynthesis.cancel();
@@ -283,6 +333,27 @@ const JourneyView: React.FC = () => {
             }
             
             const responseStream = streamMessageToExpert(historyForApi, language, currentJourneyState);
+=======
+
+        playAudio(sendSound);
+        const newUserMessage: ChatMessage = { role: 'user', content: trimmedInput };
+        let currentHistory = [...messages, newUserMessage];
+        setMessages(currentHistory);
+        setUserInput('');
+        setIsLoading(true);
+        
+        // Add a placeholder for the model's response
+        setMessages(prev => [...prev, { role: 'model', content: '' }]);
+
+        try {
+            if (journeyState === 'INITIAL') {
+                setInitialProblem(trimmedInput);
+            }
+            
+            const problemContext = journeyState === 'INITIAL' ? trimmedInput : initialProblem;
+            
+            const responseStream = streamMessageToExpert(messages, trimmedInput, language, journeyState);
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
             let isFirstChunk = true;
             
             for await (const chunk of responseStream) {
@@ -290,6 +361,7 @@ const JourneyView: React.FC = () => {
                     playAudio(receiveSound);
                     isFirstChunk = false;
                 }
+<<<<<<< HEAD
     
                 if (typeof chunk === 'object' && chunk.journeyPlan) {
                     isPlanReceived = true;
@@ -312,10 +384,36 @@ const JourneyView: React.FC = () => {
                             lastMessage.content = lastMessage.content + chunk;
                         }
                         return updatedMessages;
+=======
+
+                if (typeof chunk === 'object' && chunk.journeyPlan) {
+                    setMessages(prev => {
+                        const updatedMessages = [...prev];
+                        const lastMsg = updatedMessages[prev.length - 1];
+                        if (lastMsg) {
+                           lastMsg.content = `Here is the roadmap for your journey. Are you ready to begin?`;
+                           lastMsg.journeyPlan = { ...chunk.journeyPlan, originalProblem: problemContext };
+                           // Update history for confirmation check
+                           currentHistory[currentHistory.length] = lastMsg; 
+                        }
+                        return updatedMessages;
+                    });
+                    setJourneyState('AWAITING_CONFIRMATION');
+                } else if (typeof chunk === 'string') {
+                    setMessages(prev => {
+                        const lastMessage = prev[prev.length - 1];
+                        if (lastMessage?.role === 'model') {
+                            const updatedMessages = [...prev];
+                            updatedMessages[prev.length - 1] = { ...lastMessage, content: lastMessage.content + chunk };
+                            return updatedMessages;
+                        }
+                        return prev;
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
                     });
                 }
             }
              
+<<<<<<< HEAD
             // State transitions should happen *after* the async stream is complete
             if (currentJourneyState === 'INITIAL') {
                 setJourneyState('AWAITING_DURATION');
@@ -343,6 +441,17 @@ const JourneyView: React.FC = () => {
                         setJourneyPlan(pendingPlan);
                         setPendingPlan(null);
                         setJourneyState('JOURNEY_ACTIVE');
+=======
+            if (journeyState === 'INITIAL') {
+                setJourneyState('AWAITING_DURATION');
+            } else if (journeyState === 'AWAITING_CONFIRMATION') {
+                const positiveResponses = ['yes', 'yeah', 'ok', 'ready', 'yup', 'sure', 'start', 'begin', 'yes i am', 'i am ready'];
+                if (positiveResponses.some(res => trimmedInput.toLowerCase().includes(res))) {
+                    const lastMessageWithPlan = [...currentHistory].reverse().find(m => m.journeyPlan);
+                    if (lastMessageWithPlan?.journeyPlan) {
+                       setJourneyPlan(lastMessageWithPlan.journeyPlan);
+                       setJourneyState('JOURNEY_ACTIVE');
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
                     }
                 }
             }
@@ -351,6 +460,7 @@ const JourneyView: React.FC = () => {
             const errorMessage = error instanceof Error && error.message === 'RATE_LIMIT_EXCEEDED'
                 ? t('apiRateLimitError')
                 : t('errorOccurred');
+<<<<<<< HEAD
     
             setMessages(prev => {
                 const updatedMessages = [...prev];
@@ -360,6 +470,17 @@ const JourneyView: React.FC = () => {
                 }
                 return updatedMessages;
             });
+=======
+
+            setMessages(prev => {
+                 const updatedMessages = [...prev];
+                 const lastMessage = updatedMessages[updatedMessages.length - 1];
+                 if(lastMessage) {
+                    lastMessage.content = errorMessage;
+                 }
+                 return updatedMessages;
+            })
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         } finally {
             setIsLoading(false);
         }
@@ -369,8 +490,12 @@ const JourneyView: React.FC = () => {
         setActiveDay(day);
     };
 
+<<<<<<< HEAD
     const handleCompleteSession = async (completedDay: JourneyDay) => {
         // Update local state
+=======
+    const handleCompleteSession = (completedDay: JourneyDay) => {
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         setJourneyPlan(prevPlan => {
             if (!prevPlan) return null;
             const newDays = prevPlan.days.map(day => 
@@ -378,6 +503,7 @@ const JourneyView: React.FC = () => {
             );
             return { ...prevPlan, days: newDays };
         });
+<<<<<<< HEAD
         
         // Update in database if authenticated
         if (isAuthenticated) {
@@ -430,10 +556,16 @@ const JourneyView: React.FC = () => {
         }
     };
 
+=======
+        setActiveDay(null);
+    };
+
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     if (journeyState === 'JOURNEY_ACTIVE' && journeyPlan) {
         if (activeDay) {
             return <JourneySession day={activeDay} plan={journeyPlan} onComplete={handleCompleteSession} />;
         }
+<<<<<<< HEAD
         return (
             <div>
                 <JourneyDashboard plan={journeyPlan} onStartSession={handleStartSession} />
@@ -447,11 +579,15 @@ const JourneyView: React.FC = () => {
                 </div>
             </div>
         );
+=======
+        return <JourneyDashboard plan={journeyPlan} onStartSession={handleStartSession} />;
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     }
     
     return (
         <div className="flex flex-col h-[75vh] p-4 sm:p-6 animate-fade-in">
              <div className="relative text-center mb-4">
+<<<<<<< HEAD
                 <h2 className="text-2xl sm:text-3xl font-bold text-[#8C5A2A] font-sanskrit">
                     {t('yourWellnessJourney')}
                 </h2>
@@ -468,6 +604,14 @@ const JourneyView: React.FC = () => {
                  </div>
             </div>
             <div role="log" aria-live="polite" className="flex-grow overflow-y-auto pr-2 space-y-6">
+=======
+                <h2 className="text-3xl font-bold text-[#8C5A2A] font-sanskrit">
+                    {t('yourWellnessJourney')}
+                </h2>
+                 <p className="text-lg text-[#4A2C2A]/80">{t('guidedPathToPeace')}</p>
+            </div>
+            <div className="flex-grow overflow-y-auto pr-2 space-y-6">
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
                 {messages.map((msg, index) => (
                     <div key={index}>
                         <div className={`flex items-end gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>

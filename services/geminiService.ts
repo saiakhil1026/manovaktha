@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import { GoogleGenAI, Type, Chat } from "@google/genai";
 import { type Solution, type SolutionResponse, type Language, type ChatMessage, type JourneyPlan, type JourneyDayContent, type VideoSuggestion, type DoctorProfile } from '../types';
@@ -8,6 +9,16 @@ if (!process.env.API_KEY && !import.meta.env?.VITE_API_KEY) {
 
 const apiKey = process.env.API_KEY || import.meta.env?.VITE_API_KEY;
 const ai = new GoogleGenAI({ apiKey });
+=======
+import { GoogleGenAI, Type, Chat } from "@google/genai";
+import { type Solution, type SolutionResponse, type Language, type ChatMessage, type JourneyPlan, type JourneyDayContent } from '../types';
+
+if (!process.env.API_KEY) {
+    throw new Error("API_KEY environment variable not set");
+}
+
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
 const solutionSchema = {
     type: Type.OBJECT,
@@ -89,6 +100,10 @@ export async function getSolutionsFromPuranas(userProblem: string, language: Lan
 }
 
 // --- New Chat Functionality ---
+<<<<<<< HEAD
+=======
+let chat: Chat | null = null;
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
 
 const journeyPlanSchema = {
     type: Type.OBJECT,
@@ -125,6 +140,10 @@ export const getChatSystemInstruction = (language: Language) => `You are 'Mano V
 
 export async function* streamMessageToExpert(
     history: ChatMessage[],
+<<<<<<< HEAD
+=======
+    newMessage: string,
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     language: Language,
     journeyState: 'INITIAL' | 'AWAITING_DURATION' | 'AWAITING_CONFIRMATION'
 ): AsyncGenerator<string | { journeyPlan: Omit<JourneyPlan, 'originalProblem'> }> {
@@ -132,10 +151,21 @@ export async function* streamMessageToExpert(
     const systemInstruction = getChatSystemInstruction(language);
     
     // Convert our app's message format to the Gemini API's format
+<<<<<<< HEAD
     const modelContents = history.map(msg => ({
         role: msg.role,
         parts: [{ text: msg.content }]
     }));
+=======
+    const contents = history.map(msg => ({
+        role: msg.role,
+        parts: [{ text: msg.content }]
+    }));
+    contents.push({ role: 'user', parts: [{ text: newMessage }] });
+
+    // Remove the initial system message from the history sent to the model
+    const modelContents = contents.slice(1);
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
     
     try {
         if (journeyState === 'AWAITING_DURATION') {
@@ -293,6 +323,7 @@ export async function* streamSessionChat(
     }
 }
 
+<<<<<<< HEAD
 export async function* streamVedicAnalysis(
     history: ChatMessage[],
     newMessage: string,
@@ -310,6 +341,22 @@ export async function* streamVedicAnalysis(
     - IMPORTANT: Your entire response MUST be in ${language}.`;
 
     const contents = history.map(msg => ({
+=======
+export async function* streamTempChat(
+    sessionHistory: ChatMessage[],
+    newMessage: string,
+    language: Language
+): AsyncGenerator<string> {
+    const systemInstruction = `You are a specialized mentalist and a wise friend. Your name is 'Chintan' (meaning 'thought' or 'reflection'). You engage in a friendly, conversational, and deeply empathetic manner. The user is coming to you with a life problem. Your goal is to help them think through their problem and provide one clear, actionable solution rooted in the wisdom of the Vedas and Hindu Puranas.
+    - Be conversational and friendly, not overly formal like a guru. Use 'you' and 'I'.
+    - Listen to their problem carefully. Ask clarifying questions if needed.
+    - Guide them to see the problem from a different perspective.
+    - When you provide the solution, present it as a story or a teaching from the scriptures, and explicitly state the source (e.g., 'from the Katha Upanishad').
+    - Keep the tone supportive and encouraging throughout.
+    - IMPORTANT: Your entire response MUST be in ${language}.`;
+
+    const contents = sessionHistory.map(msg => ({
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         role: msg.role,
         parts: [{ text: msg.content }]
     }));
@@ -328,12 +375,17 @@ export async function* streamVedicAnalysis(
             yield chunk.text;
         }
     } catch(error) {
+<<<<<<< HEAD
         console.error("Vedic analysis stream error:", error);
+=======
+        console.error("Temp chat stream error:", error);
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         if (isRateLimitError(error)) {
             throw new Error("RATE_LIMIT_EXCEEDED");
         }
         throw error;
     }
+<<<<<<< HEAD
 }
 
 export async function* streamChat(
@@ -486,3 +538,6 @@ export async function getDoctorList(language: Language): Promise<DoctorProfile[]
         throw new Error("Failed to fetch doctor list.");
     }
 }
+=======
+}
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605

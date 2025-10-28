@@ -28,6 +28,7 @@ const JourneyDashboard: React.FC<JourneyDashboardProps> = ({ plan, onStartSessio
       <div className="mb-10 p-6 rounded-lg border-2 border-dashed border-[#D4AF37]/60 bg-[#FBF5E9]">
         <h3 className="font-bold text-xl text-[#4A2C2A] mb-4 text-center">{t('journeyProgress')}</h3>
         <div className="flex items-center gap-4">
+<<<<<<< HEAD
             <div 
                 role="progressbar"
                 aria-valuenow={completedDays}
@@ -39,13 +40,25 @@ const JourneyDashboard: React.FC<JourneyDashboardProps> = ({ plan, onStartSessio
                     className="bg-gradient-to-r from-[#8C5A2A] to-[#D4AF37] h-6 rounded-full transition-all duration-1000 ease-out flex items-center justify-end pr-2" 
                     style={{ width: `${progressPercentage}%` }}
                     aria-hidden="true"
+=======
+            <div className="w-full bg-[#EAE0C8] rounded-full h-6 border border-[#D4AF37]/50 overflow-hidden">
+                <div 
+                    className="bg-gradient-to-r from-[#8C5A2A] to-[#D4AF37] h-6 rounded-full transition-all duration-1000 ease-out flex items-center justify-end pr-2" 
+                    style={{ width: `${progressPercentage}%` }}
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
                 >
                   {progressPercentage > 10 && <span className="text-white text-xs font-bold">{Math.round(progressPercentage)}%</span>}
                 </div>
             </div>
+<<<<<<< HEAD
             <span className="font-bold text-[#4A2C2A] w-24 text-right" aria-hidden="true">{completedDays} / {totalDays} {t('days')}</span>
         </div>
         <div className="flex justify-between mt-2 text-sm text-[#8C5A2A]/80" aria-hidden="true">
+=======
+            <span className="font-bold text-[#4A2C2A] w-24 text-right">{completedDays} / {totalDays} {t('days')}</span>
+        </div>
+        <div className="flex justify-between mt-2 text-sm text-[#8C5A2A]/80">
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
             <span>{t('start')}</span>
             <span>{t('completion')}</span>
         </div>
@@ -56,11 +69,19 @@ const JourneyDashboard: React.FC<JourneyDashboardProps> = ({ plan, onStartSessio
         <div className="space-y-4">
           {plan.days.map((day, index) => (
             <div key={day.day} className={`flex items-center p-4 rounded-lg border transition-all duration-300 ${day.completed ? 'bg-green-100/60 border-green-500/50 opacity-80' : 'bg-[#FBF5E9]/80 border-[#D4AF37]/50'}`}>
+<<<<<<< HEAD
               <div aria-hidden="true" className={`w-12 h-12 rounded-full flex-shrink-0 mr-4 flex items-center justify-center font-bold text-xl transition-colors duration-300 ${day.completed ? 'bg-green-600 text-white' : 'bg-[#EAE0C8] text-[#4A2C2A]'}`}>
                 {day.completed ? <CheckCircleIcon className="w-8 h-8"/> : day.day}
               </div>
               <div>
                 <p className={`font-bold text-lg text-[#4A2C2A] transition-all duration-300 ${day.completed ? 'line-through text-gray-500' : ''}`}>{t('day')} {day.day}: {day.topic}</p>
+=======
+              <div className={`w-12 h-12 rounded-full flex-shrink-0 mr-4 flex items-center justify-center font-bold text-xl transition-colors duration-300 ${day.completed ? 'bg-green-600 text-white' : 'bg-[#EAE0C8] text-[#4A2C2A]'}`}>
+                {day.completed ? <CheckCircleIcon className="w-8 h-8"/> : day.day}
+              </div>
+              <div>
+                <p className={`font-bold text-lg text-[#4A2C2A] transition-all duration-300 ${day.completed ? 'line-through text-gray-500' : ''}`}>{day.topic}</p>
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
                 {!day.completed && index === completedDays && (
                    <button 
                      onClick={() => onStartSession(day)}
@@ -78,4 +99,8 @@ const JourneyDashboard: React.FC<JourneyDashboardProps> = ({ plan, onStartSessio
   );
 };
 
+<<<<<<< HEAD
 export default JourneyDashboard;
+=======
+export default JourneyDashboard;
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605

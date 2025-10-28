@@ -1,5 +1,6 @@
 import React from 'react';
 import ManoVakthaIcon from './icons/ManoVakthaIcon';
+<<<<<<< HEAD
 import ProfileDropdown from './ProfileDropdown';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -17,22 +18,41 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, user, onOpenProfileSettings, onLogout }) => {
+=======
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '../contexts/LanguageContext';
+
+interface HeaderProps {
+  onNavigate: (view: 'manuscript' | 'journey' | 'tempChat', shouldReset?: boolean) => void;
+  currentView: 'manuscript' | 'journey' | 'tempChat';
+}
+
+const Header: React.FC<HeaderProps> = ({ onNavigate, currentView }) => {
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
   const { t } = useLanguage();
   
   const navItems = [
       { view: 'manuscript' as const, label: t('manuscript') },
       { view: 'journey' as const, label: t('wellnessJourney') },
+<<<<<<< HEAD
       { view: 'analysis' as const, label: t('analysis') },
       { view: 'media' as const, label: t('media') },
       { view: 'doctors' as const, label: t('doctors') },
       { view: 'history' as const, label: t('history') },
       { view: 'saved' as const, label: t('saved') },
       { view: 'quickChat' as const, label: t('quickChat') }
+=======
+      { view: 'tempChat' as const, label: t('tempChart') }
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
   ];
 
   return (
     <header className="py-3 px-4 sm:px-6 lg:px-8 border-b-2 border-amber-500/20 bg-[#FBF5E9]/80 backdrop-blur-sm sticky top-0 z-50">
+<<<<<<< HEAD
       <div className="container mx-auto flex flex-wrap justify-between items-center gap-y-2">
+=======
+      <div className="container mx-auto flex justify-between items-center">
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         <div className="flex items-center space-x-4">
           <button 
             onClick={() => onNavigate('manuscript', true)} 
@@ -47,7 +67,12 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, user, onOpenPr
         </div>
         
         <div className="flex items-center gap-2 sm:gap-4">
+<<<<<<< HEAD
           <nav className="flex items-center gap-1 sm:gap-2 rounded-lg bg-[#8C5A2A]/5 p-1 border border-[#D4AF37]/30 flex-wrap justify-center">
+=======
+          <LanguageSwitcher />
+          <nav className="flex items-center gap-1 sm:gap-2 rounded-lg bg-[#8C5A2A]/5 p-1 border border-[#D4AF37]/30">
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
             {navItems.map(({ view, label }) => (
               <button
                 key={view}
@@ -63,11 +88,18 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, user, onOpenPr
               </button>
             ))}
           </nav>
+<<<<<<< HEAD
           <ProfileDropdown user={user} onOpenSettings={onOpenProfileSettings} onLogout={onLogout} />
+=======
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
         </div>
       </div>
     </header>
   );
 };
 
+<<<<<<< HEAD
 export default Header;
+=======
+export default Header;
+>>>>>>> 39ceae5246b9efa5d915fc623f5e55a25c810605
